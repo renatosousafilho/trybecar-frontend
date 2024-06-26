@@ -10,7 +10,9 @@ export default function Passengers() {
   useEffect(() => {
     console.log('fetching passengers');
     async function fetchPassengers() {
-      const data = await getAllPassengers();
+      const BASE_URL = process.env.API_URL;
+      const response = await fetch(`${BASE_URL}/passengers`);
+      const data = await response.json();
       setPassengers(data);
     }
     fetchPassengers();
