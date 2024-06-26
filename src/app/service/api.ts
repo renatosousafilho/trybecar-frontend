@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+const BASE_URL = process.env.API_URL;
 
 export const getAllPassengers = async () => {
   console.log(BASE_URL);
