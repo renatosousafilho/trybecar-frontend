@@ -2,6 +2,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <h1>Hello, Next.js!</h1>
+    <div>
+      <h1>{process.env.API_URL}</h1>
+    </div>
   );
 }
