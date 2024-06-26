@@ -1,17 +1,14 @@
 'use server'
-
 import { Passenger } from '../types/Passenger';
-// import { getAllPassengers } from '../service/api';
-import { useState, useEffect } from 'react';
+import { getAllPassengers } from '../service/api';
 
-const BASE_URL = process.env.API_URL;
+// const BASE_URL = process.env.API_URL;
 
-const getAllPassengers = async () => {
-  console.log(BASE_URL);
-  const response = await fetch(`${BASE_URL}/passengers`);
-  const data = await response.json();
-  return data;
-};
+// const getAllPassengers = async () => {
+//   const response = await fetch(`${BASE_URL}/passengers`);
+//   const data = await response.json();
+//   return data;
+// };
 
 export default async function Passengers() {
   const passengers: Passenger[] = await getAllPassengers();

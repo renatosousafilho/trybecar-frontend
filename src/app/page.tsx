@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      <h1>{process.env.API_URL}</h1>
+      <h1>Hello, Next.js!</h1>
     </div>
   );
 }
