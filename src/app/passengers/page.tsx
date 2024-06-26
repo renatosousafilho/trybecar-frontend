@@ -8,6 +8,7 @@ export default function Passengers() {
   const [passengers, setPassengers] = useState<Passenger[]>([]);
 
   useEffect(() => {
+    console.log('fetching passengers');
     async function fetchPassengers() {
       const data = await getAllPassengers();
       setPassengers(data);
