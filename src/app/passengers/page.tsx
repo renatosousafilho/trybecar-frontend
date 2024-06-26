@@ -1,21 +1,21 @@
-'use server'
+'use client'
 
 import { Passenger } from '../types/Passenger';
 import { getAllPassengers } from '../service/api';
 import { useState, useEffect } from 'react';
 
-export default async function Passengers() {
-  // const [passengers, setPassengers] = useState<Passenger[]>([]);
+export default function Passengers() {
+  const [passengers, setPassengers] = useState<Passenger[]>([]);
 
-  // useEffect(() => {
-  //   async function fetchPassengers() {
-  //     const data = await getAllPassengers();
-  //     setPassengers(data);
-  //   }
-  //   fetchPassengers();
-  // }, []);
+  useEffect(() => {
+    async function fetchPassengers() {
+      const data = await getAllPassengers();
+      setPassengers(data);
+    }
+    fetchPassengers();
+  }, []);
 
-  const passengers: Passenger[] = await getAllPassengers();
+  // const passengers: Passenger[] = await getAllPassengers();
 
   return (
     <div className="overflow-x-auto">
