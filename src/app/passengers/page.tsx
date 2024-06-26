@@ -11,7 +11,10 @@ export default function Passengers() {
     console.log('fetching passengers');
     async function fetchPassengers() {
       const BASE_URL = process.env.API_URL;
-      const response = await fetch(`${BASE_URL}/passengers`);
+      console.log(BASE_URL);
+      const url = 'https://nestjs-vercel-delta.vercel.app/passengers';
+      console.log(url);
+      const response = await fetch(url);
       const data = await response.json();
       setPassengers(data);
     }
