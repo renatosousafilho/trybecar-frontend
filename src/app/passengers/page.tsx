@@ -2,14 +2,6 @@
 import { Passenger } from '../types/Passenger';
 import { getAllPassengers } from '../service/api';
 
-// const BASE_URL = process.env.API_URL;
-
-// const getAllPassengers = async () => {
-//   const response = await fetch(`${BASE_URL}/passengers`);
-//   const data = await response.json();
-//   return data;
-// };
-
 export default async function Passengers() {
   const passengers: Passenger[] = await getAllPassengers();
 
@@ -20,8 +12,8 @@ export default async function Passengers() {
         <thead>
           <tr>
             <th className="px-4 py-2 bg-[#0C6D18] text-gray-200">Nome</th>
-            <th className="px-4 py-2 bg-[#0C6D18] text-gray-200">Ativo</th>
-            <th className="px-4 py-2 bg-[#0C6D18] text-gray-200">Ações</th>
+            <th className="px-4 py-2 bg-[#0C6D18] text-gray-200">E-mail</th>
+            <th className="px-4 py-2 bg-[#0C6D18] text-gray-200">Telefone</th>
           </tr>
         </thead>
         <tbody>
