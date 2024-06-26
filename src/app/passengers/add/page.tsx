@@ -2,7 +2,7 @@
 
 import { createPassenger } from '@/app/service/api';
 import { redirect } from 'next/navigation';
-import { use, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 
@@ -81,7 +81,7 @@ export default function AddPassenger() {
 
         <div className='mb-4'>
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              E-mail
+              Telefone
           </label>
           <input
             type="text"
