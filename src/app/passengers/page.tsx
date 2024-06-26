@@ -23,7 +23,6 @@ export default function Passengers() {
   return (
     <div className="overflow-x-auto">
       <h1 className="text-3xl font-bold text-center my-4 bg-transparent">Lista de Pessoas Passageiras</h1>
-      <p>{process.env.API_URL}</p>
       <table className="table-auto w-full">
         <thead>
           <tr>
