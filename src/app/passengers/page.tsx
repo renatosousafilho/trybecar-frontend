@@ -1,27 +1,20 @@
-'use client'
+'use server'
 
 import { Passenger } from '../types/Passenger';
-import { getAllPassengers } from '../service/api';
+// import { getAllPassengers } from '../service/api';
 import { useState, useEffect } from 'react';
 
-export default function Passengers() {
-  const [passengers, setPassengers] = useState<Passenger[]>([]);
+const BASE_URL = process.env.API_URL;
 
-  useEffect(() => {
-    console.log('fetching passengers');
-    async function fetchPassengers() {
-      const BASE_URL = process.env.API_URL;
-      console.log(BASE_URL);
-      const url = 'https://nestjs-vercel-delta.vercel.app/passengers';
-      console.log(url);
-      const response = await fetch(url);
-      const data = await response.json();
-      setPassengers(data);
-    }
-    fetchPassengers();
-  }, []);
+const getAllPassengers = async () => {
+  console.log(BASE_URL);
+  const response = await fetch(`${BASE_URL}/passengers`);
+  const data = await response.json();
+  return data;
+};
 
-  // const passengers: Passenger[] = await getAllPassengers();
+export default async function Passengers() {
+  const passengers: Passenger[] = await getAllPassengers();
 
   return (
     <div className="overflow-x-auto">
