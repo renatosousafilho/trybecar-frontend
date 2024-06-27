@@ -9,7 +9,7 @@ type WaypointFieldProps = {
 
 export default function WaypointField({ waypoint, index, onChange, onRemove }: WaypointFieldProps) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(index, { address: event.target.value });
+    onChange(index, { address: event.target.value, stopOrder: index + 1 });
   };
 
   const handleRemove = () => {
