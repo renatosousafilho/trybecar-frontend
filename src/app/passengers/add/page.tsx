@@ -58,7 +58,7 @@ export default function AddPassenger() {
           <input
             type="text"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="Nome do jogador"
+            placeholder="Nome"
             name='name'
             value={formData.name}
             onChange={handleInput}
@@ -103,7 +103,7 @@ export default function AddPassenger() {
           <button 
             className="bg-[#0C6D18] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-2"
             type="submit">
-            Adicionar jogador
+            Salvar
           </button>
         </div>
       </form>
