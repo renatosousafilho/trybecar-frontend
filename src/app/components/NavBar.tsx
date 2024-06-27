@@ -12,6 +12,8 @@ export default function NavBar() {
             </li>
             <li>
               <Link href="/passengers" className="text-white hover:text-gray-300">Passageiros</Link>
+            </li>
+            <li>
               <Link href="/request_travel" className="text-white hover:text-gray-300">Solicitar Viagem</Link>
             </li>
           </ul>
