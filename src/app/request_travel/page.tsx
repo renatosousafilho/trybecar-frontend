@@ -9,13 +9,13 @@ import WaypointField from './waypoint_field';
 
 export default function RequestTravel() {  
   const [message, setMessage] = useState<string>(''); 
-  const router = useRouter();
+  // const router = useRouter();
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
   const [waypoints, setWaypoints] = useState<Waypoint[]>([]);
 
   const handleAddWaypoint = () => {
-    setWaypoints([...waypoints, { address: '' }]);
+    setWaypoints([...waypoints, { address: '', stopOrder: waypoints.length + 1 }]);
   };
 
   const handleRemoveWaypoint = (index: number) => {
@@ -41,17 +41,16 @@ export default function RequestTravel() {
       waypoints,
     };
 
-    console.log(travel);
     
-    // enviar o objeto Travel para o servidor
-    // createTravel(travel).then(() => {
-    //   setMessage('Viagem solicitada com sucesso!');
-    //   setTimeout(() => {
-    //     router.push('/travels');    
-    //   }, 3000);
-    // }).catch((error) => {
-    //   console.error(error);
-    // });
+
+    createTravel(travel).then(() => {
+      setMessage('Viagem solicitada com sucesso!');
+      // setTimeout(() => {
+      //   // router.push('/travels');    
+      // }, 3000);
+    }).catch((error) => {
+      console.error(error);
+    });
   };
 
   return (
@@ -91,10 +90,8 @@ export default function RequestTravel() {
             <button
               type="button"
               onClick={handleAddWaypoint}
-              className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 mt-2"
-            >
-              Adicionar
-            </button>
+              data-testid="add-waypoint-button"
+              className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 mt-2">Adicionar</button>
           </div>
         </div>
 
@@ -106,6 +103,7 @@ export default function RequestTravel() {
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             className="border rounded-md px-2 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder='Para onde você vai?'
           />
         </div>
 

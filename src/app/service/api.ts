@@ -22,7 +22,7 @@ export const createPassenger = async (passenger: Passenger) => {
 }
 
 export const createTravel = async (travel: Travel) => {
-  const response = await fetch(`${BASE_URL}/travels`, {
+  const response = await fetch(`${BASE_URL}/request_travel`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
