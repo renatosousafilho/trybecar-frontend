@@ -22,12 +22,19 @@ export const createPassenger = async (passenger: Passenger) => {
 }
 
 export const createTravel = async (travel: Travel) => {
-  const response = await fetch(`${BASE_URL}/request_travel`, {
+  const response = await fetch(`${BASE_URL}/passengers/1/request/travel`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(travel),
+    body: JSON.stringify({
+      "startingAddress": travel.origin,
+      "endingAddress": travel.destination,
+      "waypoints": travel.waypoints.map(waypoint => ({
+        "address": waypoint.address,
+        "stopOrder": waypoint.stopOrder
+      }))
+    })
   });
   const data = await response.json();
   return data;

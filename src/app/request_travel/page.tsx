@@ -62,7 +62,7 @@ export default function RequestTravel() {
 
       <form 
         onSubmit={handleSubmit} 
-        className="mt-4">
+        className="w-6/12 mx-auto">
         <div className="flex flex-col">
           <label htmlFor="origin" className="text-gray-800 font-medium mb-2">Origem:</label>
           <input
@@ -70,7 +70,7 @@ export default function RequestTravel() {
             id="origin"
             value={origin}
             onChange={(e) => setOrigin(e.target.value)}
-            className="border rounded-md px-2 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border rounded-md px-2 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 shadow-md"
             placeholder="Localização atual"
           />
         </div>
@@ -91,7 +91,7 @@ export default function RequestTravel() {
               type="button"
               onClick={handleAddWaypoint}
               data-testid="add-waypoint-button"
-              className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 mt-2">Adicionar</button>
+              className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 mt-2">➕ Adicionar Ponto de Parada</button>
           </div>
         </div>
 
@@ -102,12 +102,12 @@ export default function RequestTravel() {
             id="destination"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
-            className="border rounded-md px-2 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border rounded-md px-2 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 shadow-md"
             placeholder='Para onde você vai?'
           />
         </div>
 
-        <button type="submit" className="w-full bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 mt-4">
+        <button type="submit" className="w-full bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 mt-4">
           Solicitar Viagem
         </button>
     </form>

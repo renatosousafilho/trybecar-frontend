@@ -20,9 +20,10 @@ export default function WaypointField({ waypoint, index, onChange, onRemove }: W
     <div key={index} className="flex py-2">
       <input
         type="text"
+        placeholder={`Ponto de Parada #${index + 1}`}
         value={waypoint.address}
         onChange={(e) => handleChange(e)}
-        className="border rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 mr-2"
+        className="border rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 mr-2 shadow-md"
       />
       <button
         type="button"
