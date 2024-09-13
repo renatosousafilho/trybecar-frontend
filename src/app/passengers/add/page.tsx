@@ -15,6 +15,8 @@ export default function AddPassenger() {
     name: '',
     email: '',
     phone: '',
+    address: '',
+    city: '',
   });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -89,6 +91,34 @@ export default function AddPassenger() {
             placeholder="Telefone"
             name='phone'
             value={formData.phone}
+            onChange={handleInput}
+          />
+        </div>
+
+        <div className='mb-4'>
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="address">
+              Endereço
+          </label>
+          <input
+            type="text"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Endereço"
+            name='address'
+            value={formData.address}
+            onChange={handleInput}
+          />
+        </div>
+
+        <div className='mb-4'>
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="city">
+              Cidade
+          </label>
+          <input
+            type="text"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Cidade"
+            name='city'
+            value={formData.city}
             onChange={handleInput}
           />
         </div>
