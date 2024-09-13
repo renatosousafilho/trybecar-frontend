@@ -8,7 +8,8 @@ import { createTravel } from '../service/api';
 import WaypointField from './waypoint_field';
 
 export default function RequestTravel() {  
-  const [message, setMessage] = useState<string>(''); 
+  const [message, setMessage] = useState<string>('');
+  const [messageBG, setMessageBG] = useState<string>('');
   // const router = useRouter();
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
@@ -45,25 +46,26 @@ export default function RequestTravel() {
 
     createTravel(travel).then(() => {
       setMessage('Viagem solicitada com sucesso!');
+      setMessageBG('bg-green-500');
       // setTimeout(() => {
       //   // router.push('/travels');    
       // }, 3000);
     }).catch((error) => {
-      console.error(error);
+      setMessage('Erro interno da aplicação');
+      setMessageBG('bg-red-500');
     });
   };
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 w-6/12">
       <h1 className="text-3xl font-bold text-center my-4 bg-transparent">Solicitar Viagem</h1>
       {message && (
-        <p className="text-center text-green-500">{message}</p>
+        <p className={`text-white p-4 rounded ${messageBG}`}>{message}</p>
       )}
 
       <form 
-        onSubmit={handleSubmit} 
-        className="w-6/12 mx-auto">
-        <div className="flex flex-col">
+        onSubmit={handleSubmit}>
+        <div className="flex flex-col mt-4">
           <label htmlFor="origin" className="text-gray-800 font-medium mb-2">Origem:</label>
           <input
             type="text"
